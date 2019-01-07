@@ -39,11 +39,20 @@ chown --recursive $APP_USER:$APP_GROUP $APP_DATA_DIR
 # cp the config.xml to the data dir
 cp $APP_INSTALL_PATH/config.xml $APP_DATA_DIR
 
+cp atlcrucible.sh $APP_INSTALL_PATH/fecru-4.6.1/bin
+
+ln --symbolic $APP_INSTALL_PATH/fecru-4.6.1/bin/atlcrucible.sh /etc/init.d/atlcrucible
+
 # after these few things need to check
 # first make sure the 8060 port is open
 # e.g.
 # `firewall-cmd --list-port`
-# if not need to open the 8060 port by:
+# if not, need to open the 8060 port by:
 # `firewall-cmd --permanent --add-service=http`
-# `firewall-cmd --permanent --add-port=8085/tcp`
+# `firewall-cmd --permanent --add-port=8060/tcp`
 # `firewall-cmd --reload`
+
+# lastly, start the crucible service
+# `service atlcrucible start` 
+# or start the service as other user 
+# `runuser -l atlcrucible -c 'service atlcrucible start'`
