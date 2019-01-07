@@ -1,12 +1,12 @@
 #! /bin/bash
 
-$APP_USER = "atlcrucible"
-$APP_GROUP = "ndiaatlassian"
-$APP_INSTALL_PATH = "/opt/atlassian/crucible"
-$APP_DATA_DIR = "/data/atlcrucible"
-$JAVA_HOME = "/usr/lib/jvm/jre-1.8.0-openjdk"
-$ENV_PATH = "/etc/environment"
-$SERVICE_PATH = "/usr/lib/systemd/system/crucible.service"
+APP_USER = "atlcrucible"
+APP_GROUP = "ndiaatlassian"
+APP_INSTALL_PATH = "/opt/atlassian/crucible"
+APP_DATA_DIR = "/data/atlcrucible"
+JAVA_HOME = "/usr/lib/jvm/jre-1.8.0-openjdk"
+ENV_PATH = "/etc/environment"
+SERVICE_PATH = "/usr/lib/systemd/system/crucible.service"
 
 
 # in some server, you might need to download the wget, unzip, java as well,
