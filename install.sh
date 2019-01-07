@@ -44,6 +44,7 @@ cp atlcrucible.service $SERVICE_PATH
 
 chmod 751 $SERVICE_PATH
 chown --recursive $APP_USER:$APP_GROUP $SERVICE_PATH
+systemctl daemon-reload
 
 
 # after these few things need to check
