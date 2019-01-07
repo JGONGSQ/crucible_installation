@@ -6,6 +6,7 @@ $APP_INSTALL_PATH = "/opt/atlassian/crucible"
 $APP_DATA_DIR = "/data/atlcrucible"
 $JAVA_HOME = "/usr/lib/jvm/jre-1.8.0-openjdk"
 $ENV_PATH = "/etc/environment"
+$SERVICE_PATH = "/usr/lib/systemd/system/crucible.service"
 
 
 # in some server, you might need to download the wget, unzip, java as well,
@@ -39,9 +40,11 @@ chown --recursive $APP_USER:$APP_GROUP $APP_DATA_DIR
 # cp the config.xml to the data dir
 cp $APP_INSTALL_PATH/config.xml $APP_DATA_DIR
 
-cp atlcrucible.sh $APP_INSTALL_PATH/fecru-4.6.1/bin
+cp atlcrucible.service $SERVICE_PATH
 
-ln --symbolic $APP_INSTALL_PATH/fecru-4.6.1/bin/atlcrucible.sh /etc/init.d/atlcrucible
+chmod 751 $SERVICE_PATH
+chown --recursive $APP_USER:$APP_GROUP $SERVICE_PATH
+
 
 # after these few things need to check
 # first make sure the 8060 port is open
@@ -53,6 +56,6 @@ ln --symbolic $APP_INSTALL_PATH/fecru-4.6.1/bin/atlcrucible.sh /etc/init.d/atlcr
 # `firewall-cmd --reload`
 
 # lastly, start the crucible service
-# `service atlcrucible start` 
+# `service crucible start` 
 # or start the service as other user 
-# `runuser -l atlcrucible -c 'service atlcrucible start'`
+# `runuser -l atlcrucible -c 'service crucible start'`
