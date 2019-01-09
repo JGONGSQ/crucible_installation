@@ -4,6 +4,7 @@ Description=Crucible Service
 [Service]
 Type=forking
 ExecStart=/opt/atlassian/crucible/fecru-4.6.1/bin/start.sh
+ExecStop=/opt/atlassian/crucible/fecru-4.6.1/bin/stop.sh
 
 [Install]
 WantedBy=multi-user.target
