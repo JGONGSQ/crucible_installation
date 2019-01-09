@@ -14,10 +14,10 @@ mkdir -p $APP_INSTALL_PATH
 mkdir -p $APP_DATA_DIR
 
 # in some server, you might need to download the wget, unzip, java as well,
-yum install wget
-yum install unzip
-yum install java-1.8.0-openjdk
-yum install httpd # this may not be needed
+yum -y install wget
+yum -y install unzip
+yum -y install java-1.8.0-openjdk
+yum -y install httpd # this may not be needed
 # if not finding the url base, do `dhclient`
 
 
