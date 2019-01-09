@@ -1,14 +1,14 @@
 #! /bin/bash
 
-APP_USER = "atlcrucible"
-APP_GROUP = "ndiaatlassian"
+APP_USER="atlcrucible"
+APP_GROUP="ndiaatlassian"
 
 sudo groupadd $APP_GROUP
 sudo useradd -g $APP_GROUP $APP_USER
 
 # make the install and data directory with a path
-APP_INSTALL_PATH = /opt/atlassian/crucible
-APP_DATA_DIR = /data/atlcrucible
+APP_INSTALL_PATH="/opt/atlassian/crucible"
+APP_DATA_DIR="/data/atlcrucible"
 
 mkdir -p $APP_INSTALL_PATH
 mkdir -p $APP_DATA_DIR
@@ -21,9 +21,9 @@ yum -y install httpd # this may not be needed
 # if not finding the url base, do `dhclient`
 
 
-JAVA_HOME = /usr/lib/jvm/jre-1.8.0-openjdk
-ENV_PATH = /etc/environment
-SERVICE_PATH = /usr/lib/systemd/system/crucible.service
+JAVA_HOME="/usr/lib/jvm/jre-1.8.0-openjdk"
+ENV_PATH="/etc/environment"
+SERVICE_PATH="/usr/lib/systemd/system/crucible.service"
 
 # make sure the java_home is defined in the linux env
 echo JAVA_HOME=$JAVA_HOME >> $ENV_PATH
@@ -40,9 +40,9 @@ chown --recursive $APP_USER:$APP_GROUP $APP_INSTALL_PATH
 chown --recursive $APP_USER:$APP_GROUP $APP_DATA_DIR
 
 # cp the config.xml to the data dir
-cp $APP_INSTALL_PATH/config.xml $APP_DATA_DIR
+cp $APP_INSTALL_PATH/fecru-4.6.1/config.xml $APP_DATA_DIR
 
-cp atlcrucible.service $SERVICE_PATH
+cp crucible.service $SERVICE_PATH
 chmod 644 $SERVICE_PATH
 chown --recursive $APP_USER:$APP_GROUP $SERVICE_PATH
 systemctl daemon-reload
