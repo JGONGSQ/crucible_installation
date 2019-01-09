@@ -7,8 +7,8 @@ sudo groupadd $APP_GROUP
 sudo useradd -g $APP_GROUP $APP_USER
 
 # make the install and data directory with a path
-APP_INSTALL_PATH = "/opt/atlassian/crucible"
-APP_DATA_DIR = "/data/atlcrucible"
+APP_INSTALL_PATH = /opt/atlassian/crucible
+APP_DATA_DIR = /data/atlcrucible
 
 mkdir -p $APP_INSTALL_PATH
 mkdir -p $APP_DATA_DIR
@@ -21,9 +21,9 @@ yum -y install httpd # this may not be needed
 # if not finding the url base, do `dhclient`
 
 
-JAVA_HOME = "/usr/lib/jvm/jre-1.8.0-openjdk"
-ENV_PATH = "/etc/environment"
-SERVICE_PATH = "/usr/lib/systemd/system/crucible.service"
+JAVA_HOME = /usr/lib/jvm/jre-1.8.0-openjdk
+ENV_PATH = /etc/environment
+SERVICE_PATH = /usr/lib/systemd/system/crucible.service
 
 # make sure the java_home is defined in the linux env
 echo JAVA_HOME=$JAVA_HOME >> $ENV_PATH
